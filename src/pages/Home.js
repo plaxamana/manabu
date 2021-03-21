@@ -1,28 +1,27 @@
-import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
-import Card from '../components/Card'
-import TimeSelect from '../components/TimeSelect'
+import Card from "../components/Card";
+import TimeSelect from "../components/TimeSelect";
 
-import Modal from '../components/Modal'
+import Modal from "../components/Modal";
 
 export default function Home() {
-
-  const [ isModalOpen, setIsModalOpen ] = useState(false)
-  const history = useHistory()
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const history = useHistory();
 
   const openModal = () => {
-    setIsModalOpen(true)
-  }
+    setIsModalOpen(true);
+  };
 
   function redirectToStart() {
-    setIsModalOpen(false)
-    history.push('/start')
+    setIsModalOpen(false);
+    history.push("/start");
   }
 
   return (
-    <div>
-      <Card>
+    <Card>
+      <div style={{ padding: "1em" }}>
         <p className="card-heading">Welcome To Manabu</p>
         <p className="card-body">Get your learning journal</p>
         <p className="card-body">Review last sesion's "How might I improve?"</p>
@@ -44,18 +43,19 @@ export default function Home() {
         <button className="CTA" onClick={openModal}>
           I am ready to begin
         </button>
-        <Modal
-          isModalOpen={isModalOpen}
-        >
+        <Modal isModalOpen={isModalOpen}>
           <p>
             Okay, <br />
             Let's begin!
           </p>
         </Modal>
-        { isModalOpen && setTimeout(() => {
-          redirectToStart()
-        }, 3000)}
-      </Card>
-    </div>
+        <div style={{ display: "none" }}>
+          {isModalOpen &&
+            setTimeout(() => {
+              redirectToStart();
+            }, 3000)}
+        </div>
+      </div>
+    </Card>
   );
 }

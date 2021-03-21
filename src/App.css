@@ -47,10 +47,33 @@ header {
 .card {
   margin: 2em auto;
   border-radius: 2em;
-  padding: 1em;
+  /* padding: 1em; */
   background: var(--color-white);
   max-width: 1000px;
   text-align: center;
+}
+
+.timer-body {
+  padding: 1em;
+}
+
+.dyk-container {
+  padding: .5em;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
+  color: var(--color-white);
+  background: var(--color-secondary);
+}
+
+.dyk-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.dyk-body {
+  font-family: var(--font-secondary);
+  font-weight: 300;
+  line-height: 1.2;
 }
 
 .card-heading {
@@ -170,6 +193,7 @@ a {
 .timer {
   font-size:5rem;
   margin-bottom: 2rem;
+  font-family: var(--font-secondary);
 }
 
 button {
@@ -182,7 +206,7 @@ button {
 .btn-end {
   margin: 2rem 0;
   background: 0;
-  border: 1px solid var(--color-primary);
+  border: 2px solid var(--color-primary);
   font-size: 1rem;
   padding: 1rem 2rem;
   border-radius: 16px;
@@ -191,3 +215,12 @@ button {
   color: var(--color-primary);
   cursor: pointer;
 }
+
+.grow {
+  transition: all .3s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1)
+}
+
