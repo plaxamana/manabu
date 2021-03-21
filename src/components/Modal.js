@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Modal({ open, children, onClose }) {
-  if(!open) return null;
+export default function Modal({ isModalOpen, children }) {
+  if(!isModalOpen) return null;
   return (
     <>
       <div className="overlay" />
@@ -11,3 +11,4 @@ export default function Modal({ open, children, onClose }) {
     </>
   )
 }
+

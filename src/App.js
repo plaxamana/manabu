@@ -1,17 +1,16 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import "./App.css";
 
-import Header from './components/Header'
-import Card from './components/Card'
+import ManabuApp from "./components/ManabuApp";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <div className="container">
-        <Card />
+    <Router>
+      <div className="app">
+        <ManabuApp />
       </div>
-    </div>
+    </Router>
   );
 }
 
