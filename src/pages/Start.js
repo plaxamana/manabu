@@ -1,39 +1,38 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef } from "react";
 
-import Card from '../components/Card'
+import Card from "../components/Card";
 
 function padTime(time) {
-  return time.toString().padStart(2,'0');
+  return time.toString().padStart(2, "0");
 }
 
 export default function Start() {
-  const [ title, setTitle ] = useState('Time elapsed') 
-  const [ isRunning, setIsRunning ] = useState(false)
-  const [ time, setTime ] = useState(0)
-  const intervalRef = useRef(null)
-  
-  
+  const [title, setTitle] = useState("Time elapsed");
+  const [isRunning, setIsRunning] = useState(false);
+  const [time, setTime] = useState(0);
+  const intervalRef = useRef(null);
+
   function startStopwatch() {
-    if(intervalRef.current !== null) return;
-    setIsRunning(true)
+    if (intervalRef.current !== null) return;
+    setIsRunning(true);
     intervalRef.current = setInterval(() => {
       setTime((timeLeft) => {
         return timeLeft + 1;
       });
-    }, 1000); 
+    }, 1000);
   }
 
   // startStopwatch()
 
   function stopStopwatch() {
-    if(intervalRef.current === null) return;
+    if (intervalRef.current === null) return;
     clearInterval(intervalRef.current);
     intervalRef.current = null;
-    setIsRunning(false)
+    setIsRunning(false);
   }
 
-  const minutes = padTime(Math.floor(time / 60))
-  const seconds = padTime((time - minutes * 60))
+  const minutes = padTime(Math.floor(time / 60));
+  const seconds = padTime(time - minutes * 60);
 
   return (
     <Card>
@@ -103,7 +102,7 @@ export default function Start() {
         <p className="dyk-title">Did you know?</p>
         <p className="dyk-body">
           Spending time reflecting on your wins and where you can improve can
-          make you a better learner?
+          make you a better learner
         </p>
       </div>
     </Card>
