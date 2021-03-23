@@ -9,7 +9,7 @@ function padTime(time) {
 export default function Start() {
   const [title, setTitle] = useState("Time elapsed");
   const [isRunning, setIsRunning] = useState(false);
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState(3599);
   const intervalRef = useRef(null);
 
   function startStopwatch() {
@@ -31,15 +31,19 @@ export default function Start() {
     setIsRunning(false);
   }
 
+
   const minutes = padTime(Math.floor(time / 60));
   const seconds = padTime(time - minutes * 60);
-
+  
+  
   return (
     <Card>
-      <div className="timer-body">
+      <div className="card-body">
         <h2 className="card-heading">{title}</h2>
 
         <div className="timer">
+          {/* <span>{hours}</span>
+          <span>:</span> */}
           <span>{minutes}</span>
           <span>:</span>
           <span>{seconds}</span>

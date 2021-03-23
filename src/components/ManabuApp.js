@@ -5,6 +5,7 @@ import Header from './Header'
 import Container from './Container'
 import Home from '../pages/Home'
 import Start from '../pages/Start'
+import Reflect from '../pages/Reflect'
 
 export default function ManabuApp() {
   const location = useLocation()
@@ -19,6 +20,9 @@ export default function ManabuApp() {
           </Route>
           <Route path="/start">
             <Start />
+          </Route>
+          <Route path="/reflect">
+            <Reflect />
           </Route>
         </Switch>
       </Container>
