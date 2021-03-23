@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import Card from '../components/Card'
 import PromptBox from '../components/PromptBox'
@@ -9,6 +10,13 @@ import PromptsData from '../data/prompts'
 export default function Reflect() {
 
   const [ prompt, setPrompt ] = useState({})
+  const [ isModalOpen, setIsModalOpen ] = useState(false)
+  const history = useHistory();
+
+    function redirectToStart() {
+      setIsModalOpen(false);
+      history.push("/start");
+    }
 
 
   // const [ prompts, setPrompts ] = useState([])
@@ -21,7 +29,9 @@ export default function Reflect() {
     setPrompt(PromptsData[randomNumber])
   }
 
-
+  function openModal() {
+    setIsModalOpen(true)
+  }
 
   return (
     <Card>
@@ -54,12 +64,12 @@ export default function Reflect() {
           </svg>
         </button>
         <PromptBox>
-          <p>
-            {prompt.prompt}
-          </p>
+          <p>{prompt.prompt}</p>
         </PromptBox>
         <div className="buttons">
-          <button className="CTA">Finished with prompt</button>
+          <button className="CTA" onClick={openModal}>
+            Finished with prompt
+          </button>
           <button className="btn-secondary">I'll skip for now</button>
         </div>
       </div>
@@ -69,6 +79,18 @@ export default function Reflect() {
           Spending time reflecting on your wins and where you can improve can
           make you a better learner
         </p>
+      </div>
+      <Modal isModalOpen={isModalOpen}>
+        <p>
+          Great job so far! <br />
+          Let's keep going 😁
+        </p>
+      </Modal>
+      <div style={{ display: "none" }}>
+        {isModalOpen &&
+          setTimeout(() => {
+            redirectToStart()
+          }, 3000)}
       </div>
     </Card>
   );
