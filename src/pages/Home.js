@@ -27,7 +27,7 @@ export default function Home() {
           <p>Get your learning journal</p>
           <p>Review last sesion's "How might I improve?"</p>
           <p>Check-in:</p>
-          <ul>
+          <ul className="list">
             <li>How are your energy levels?</li>
             <li>Are there any time constraints?</li>
             <li>Do you need to prepare your learning environment?</li>

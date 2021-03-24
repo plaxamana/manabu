@@ -106,12 +106,12 @@ header {
   padding: 1em;
 }
 
-ul {
-  margin: 0;
+.list {
+  margin: 2em 0;
 }
 
-ul li {
-  margin-bottom: .5em;
+li {
+  margin: .5em;
 }
 
 .container {
@@ -207,6 +207,31 @@ a {
   font-size:5rem;
   margin-bottom: 2rem;
   font-family: var(--font-secondary);
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90%;
+  margin: 1em auto;
+}
+
+.text2xl {
+  font-size: 2rem;
+}
+
+.textxl {
+  font-size: 1.75rem;
+}
+
+.text6xl {
+  margin: 0;
+  font-size: 5rem;
+}
+
+.text-secondary {
+  color: var(--color-secondary);
 }
 
 button {

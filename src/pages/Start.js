@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { Link } from 'react-router-dom'
 
 import Card from "../components/Card";
 
@@ -41,7 +42,7 @@ export default function Start() {
       <div className="card-body">
         <h2 className="card-heading">{title}</h2>
 
-        <div className="timer"> 
+        <div className="timer">
           <span>{minutes}</span>
           <span>:</span>
           <span>{seconds}</span>
@@ -98,7 +99,9 @@ export default function Start() {
           )}
         </div>
 
-        <button className="btn-end grow">End Session</button>
+        <Link to="/end">
+          <button className="btn-end grow">End Session</button>
+        </Link>
       </div>
       <div className="dyk-container">
         <p className="dyk-title">Did you know?</p>
