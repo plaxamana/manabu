@@ -13,10 +13,14 @@ export default function Reflect() {
   const [ isModalOpen, setIsModalOpen ] = useState(false)
   const history = useHistory();
 
-    function redirectToStart() {
-      setIsModalOpen(false);
-      history.push("/start");
-    }
+  function redirectToStart() {
+    setIsModalOpen(false);
+    skipPrompt()
+  }
+
+  function skipPrompt() {
+    history.push("/start")
+  }
 
 
   // const [ prompts, setPrompts ] = useState([])
@@ -70,7 +74,7 @@ export default function Reflect() {
           <button className="CTA" onClick={openModal}>
             Finished with prompt
           </button>
-          <button className="btn-secondary">I'll skip for now</button>
+          <button className="btn-secondary" onClick={skipPrompt}>I'll skip for now</button>
         </div>
       </div>
       <div className="dyk-container">

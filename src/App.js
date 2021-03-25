@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 
-import ManabuApp from "./components/ManabuApp";
+import ManabuApp from "./ManabuApp";
 
 function App() {
   return (

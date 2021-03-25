@@ -1,7 +1,9 @@
 import React, { useState, useRef } from "react";
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from "react-router-dom";
 
 import Card from "../components/Card";
+
+import { useHomeContext } from "../components/HomeContext";
 
 function padTime(time) {
   return time.toString().padStart(2, "0");
@@ -9,9 +11,18 @@ function padTime(time) {
 
 export default function Start() {
   const [title, setTitle] = useState("Time elapsed");
-  const [isRunning, setIsRunning] = useState(false);
-  const [time, setTime] = useState(0);
-  const intervalRef = useRef(null);
+  const history = useHistory();
+
+  const {
+    isRunning,
+    setIsRunning,
+    time,
+    setTime,
+    intervalRef,
+    notificationRef,
+    notificationInterval,
+    showNotification,
+  } = useHomeContext();
 
   function startStopwatch() {
     if (intervalRef.current !== null) return;
@@ -21,6 +32,15 @@ export default function Start() {
         return timeLeft + 1;
       });
     }, 1000);
+    notificationRef.current = setInterval(() => {
+      showNotification()
+      stopStopwatch();
+      goToReflect();
+    }, parseFloat(notificationInterval) * 60000);
+  }
+
+  function goToReflect() {
+    history.push("/reflect");
   }
 
   // startStopwatch()
@@ -29,14 +49,14 @@ export default function Start() {
     if (intervalRef.current === null) return;
     clearInterval(intervalRef.current);
     intervalRef.current = null;
+    clearInterval(notificationRef.current);
+    notificationRef.current = null;
     setIsRunning(false);
   }
 
-
   const minutes = padTime(Math.floor(time / 60));
   const seconds = padTime(time - minutes * 60);
-  
-  
+
   return (
     <Card>
       <div className="card-body">

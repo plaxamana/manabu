@@ -121,7 +121,7 @@ li {
 .timeSelection-container {
   display: flex;
   overflow: hidden;
-  width: 300px;
+  max-width: 300px;
   margin: 0 auto;
   justify-content: space-between;
   font-family: var(--font-secondary)
