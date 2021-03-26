@@ -53,7 +53,7 @@ export default function Home() {
               checked={notificationInterval === "0.16"}
               onChange={onRadioChange}
             >
-              0.16 mins
+              10 seconds
             </TimeSelect>
             <TimeSelect
               name="notificationInterval"
